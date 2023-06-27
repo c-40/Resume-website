@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body background="image-asset.jpeg"> 
+   <header>
+        <div class="top-color"></div>
+
+
+        <heading class="move h">
+          Portfolio
+        </heading>
+        <nav>
+            <div class="bar topnav" id="myTopnav">
+                <a href="Home.html">Home</a>
+                <a href="Portfolio.html">Resume</a>
+                <a href="Contact.html">Contact</a>
+                <a href="Achivment.html">Achivment</a>
+                <a href="login.html">Admin Login</a>
+
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+                
+           
+        </nav>
+    </header>
+  
+        <p class="loc-0"><b>Hi!</b></p>
+        <p class="loc-01"><b>I am Bramheti</b></p><br>
+        <p class="loc-05">Web designer</p>
+       <div>
+        <button class="button3 loc-02" onclick="openResume()"><span>Resume</span></button>
+
+       </div>
+    <script>
+        function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    function openResume()
+    {
+      alert('Hello there!! You are visting my resume.')
+        window.location="Portfolio.html";
+    }
+</script>
+</body>
+</html>    
