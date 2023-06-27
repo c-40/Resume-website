@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body background="contactus_tcm127-6317963_tcm127-6286607-32.jpeg">
+
+<header>
+    <div class="top-color"></div>
+    <heading class="move h">
+        Portfolio
+    </heading>
+    <nav>
+        <div class="bar topnav" id="myTopnav" method="post" action="submit.php">
+            <a href="Home.html">Home</a>
+            <a href="Portfolio.html">Resume</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Achivment.html">Achivment</a>
+            <a href="login.html">Admin Login</a>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </nav>
+</header>
+ <!--onsubmit="validateForm(event)" -->
+<form id="myForm" method="post" action="submit.php">
+    <fieldset>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="fname" required>
+        <span id="nameError" class="error"></span>
+    </div>
+<br>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="fname"required>
+        <span id="emailError" class="error"></span>
+    </div>
+<br>
+<label for="phone">Phone number:</label>
+<input type="tel" id="phone" name="phone" class="fname"pattern="{^\+?[0-9-]+$}" required><br><br>
+    <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" class="mess" required></textarea>
+        <span id="messageError" class="error"></span>
+    </div>
+    <br>
+   
+<br>
+    <input type="submit" value="Submit" class="submit-reset move1">
+    <input type="reset" value="Reset" class="submit-reset move2" onclick="alert('Your form is reset')">
+</fieldset>
+</form>
+
+<script>
+    function validateForm(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        clearErrors(); // Clear previous error messages
+
+        // Get form inputs
+        var nameInput = document.getElementById('name');
+        var emailInput = document.getElementById('email');
+        var messageInput = document.getElementById('message');
+
+        // Validate name (required field)
+        if (!validateRequired(nameInput, 'Name is required')) return;
+
+        // Validate email (required field and valid email format)
+        if (!validateRequired(emailInput, 'Email is required')) return;
+        if (!validateEmailFormat(emailInput)) return;
+
+        // Validate message (required field)
+        if (!validateRequired(messageInput, 'Message is required')) return;
+
+        // Form is valid, submit it
+        document.getElementById('myForm').submit();
+    }
+
+    function validateRequired(input, errorMessage) {
+        if (input.value.trim() === '') {
+            displayError(input, errorMessage);
+            return false;
+        }
+        return true;
+    }
+
+    function validateEmailFormat(input) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value.trim())) {
+            displayError(input, 'Invalid email format');
+            return false;
+        }
+        return true;
+    }
+
+    function clearErrors() {
+        var errorElements = document.getElementsByClassName('error');
+        for (var i = 0; i < errorElements.length; i++) {
+            errorElements[i].textContent = '';
+        }
+    }
+
+    function displayError(input, errorMessage) {
+        var errorElement = input.nextElementSibling;
+        errorElement.textContent = errorMessage;
+    }
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
+</body>
+</html>

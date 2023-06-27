@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="loginForm" action="#" onsubmit="submitForm(event)">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Add your login logic here
+            // For this example, let's just log the entered username and password to the console
+            console.log("Username: " + username);
+            console.log("Password: " + password);
+
+            if (username === 'admin' && password === 'Aqu780') {
+                window.location.href = "admin-panel.php";
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+
+            // Reset the form fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            
+        }
+    </script>
+</body>
+</html>
