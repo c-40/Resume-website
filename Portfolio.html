@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body> 
+    <header>
+        <div class="top-color"></div>
+
+
+        <heading class="move h">
+          Portfolio
+        </heading>
+        <nav>
+            <div class="bar topnav" id="myTopnav">
+                <a href="Home.html">Home</a>
+                <a href="Portfolio.html">Resume</a>
+                <a href="Contact.html">Contact</a>
+                <a href="Achivment.html">Achivment</a>
+                <a href="login.html">Admin Login</a>
+
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+                
+           
+        </nav>
+    </header>
+        <div class="border">
+            <p><b class="loc-1">Name:</b></p>
+            <p class="loc">Bramheti Patil</p>
+            <img src="Screenshot 2023-06-15 at 11.26.24 PM.png" class="img-2">
+            <p><b class="loc-3">DOB:</b></p>
+            <p class="loc-4">25/11/2003</p>
+            <p><b class="loc-5">Email:</b></p>
+            <p class="loc-6">bramhetipatil@gmail.com</p>
+            <p><b class="loc-7">Mobile no:</b></p>
+            <p class="loc-8">410-815-0625</p>
+            <div class="dropdown loc-9">
+                <button onclick="myFunction()" class="dropbtn button">Porfiles</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="https://www.instagram.com/">Instagram</a>
+                  <a href="https://www.linkedin.com/authwall?trk=qf&original_referer=https://www.google.com/&sessionRedirect=https%3A%2F%2Fin.linkedin.com%2F">Linkedin</a>
+                  <a href="https://twitter.com/i/flow/login">Twitter</a>
+                  
+                </div>
+              </div>
+                <button id="colorButton" class="loc-11 button" onclick="fun()">Achivments</button>
+
+             
+        </div>
+        
+
+        <div class="border-1">
+            <h2><b class="loc-12">Work Experience</b></h2>
+            <table>
+                
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Duration</th>
+                    <th>Certificate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ONGC </td>
+                    <td>Apprenticeship</td>
+                    <td>Dec 2023-Jan 2023</td>
+                    <td><button id="but1" onclick="openDocument1()" class="but2">Click Me</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Oasis Infobytes</td>
+                    <td>Graphic Design</td>
+                    <td>Jan 2023-Jan 2023</td>
+                    <td><button id="but2" onclick="openDocument2()" class="but2">Click Me</button></td>
+                  </tr>
+                  <tr>
+                    <td>VCET</td>
+                    <td>Web development Internship</td>
+                    <td>June 2023</td>
+                    <td><button id="but3" onclick="openDocument3()" class="but2">Click Me</button></td>
+                  </tr>
+                  <!-- Add more rows for additional work experience -->
+                </tbody>
+              </table>
+        </div>
+        <div class="border-2">
+          <h2><b class="loc-13">Education</b></h2>
+
+          <table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Institution</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10th Diploma</td>
+      <td>National English School ICSE</td>
+      <td>90%</td>
+     
+    </tr>
+    <tr>
+      <td>12th Diploma</td>
+      <td>Don Bosco High School HSC</td>
+      <td>87%</td>
+      
+    </tr>
+    <!-- Add more rows for additional education details -->
+  </tbody>
+</table>
+
+        
+
+        </div>
+<script>
+    function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function changeColor() {
+        var button = document.getElementById("colorButton");
+        button.style.backgroundColor = "red";
+    }
+    function fun()
+    {
+        window.location='Achivment.html';
+    }
+    function openDocument1() {
+  var button = document.getElementById("but1");
+  button.classList.toggle("clicked");
+
+  // Check if document is connected
+  var isDocumentConnected = true; // Replace with your document connection check logic
+
+  if (isDocumentConnected) {
+    // Open the document (replace the URL with your document URL)
+    window.open("document.pdf");
+  } else {
+    // Display alert message if document is not connected
+    alert("No document available");
+  }
+}
+function openDocument2() {
+  var button = document.getElementById("but2");
+  button.classList.toggle("clicked");
+
+  // Check if document is connected
+  var isDocumentConnected = true; // Replace with your document connection check logic
+
+  if (isDocumentConnected) {
+    // Open the document (replace the URL with your document URL)
+    window.open("document2.pdf");
+  } else {
+    // Display alert message if document is not connected
+    alert("No document available");
+  }
+}
+function openDocument3()
+{
+        alert('No document connected');
+ 
+}
+
+
+
+</script>
+    </body>
+</html>
