@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,4 +120,170 @@
     }
 </script>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('contactus_tcm127-6317963_tcm127-6286607-32.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .error {
+            color: red;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        fieldset {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .submit-reset {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-color"></div>
+    <h1 class="move h">Portfolio</h1>
+    <nav>
+        <div class="bar topnav" id="myTopnav">
+            <a href="Home.html">Home</a>
+            <a href="Portfolio.html">Resume</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Achivment.html">Achievement</a>
+            <a href="login.html">Admin Login</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<form id="myForm" method="post" action="submit.php" onsubmit="validateForm(event)">
+    <fieldset>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="fname" required>
+            <span id="nameError" class="error"></span>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="fname" required>
+            <span id="emailError" class="error"></span>
+        </div>
+        <br>
+        <div>
+            <label for="phone">Phone number:</label>
+            <input type="tel" id="phone" name="phone" class="fname" pattern="^\+?[0-9-]+$" required>
+            <span id="phoneError" class="error"></span>
+        </div>
+        <br>
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" class="mess" required></textarea>
+            <span id="messageError" class="error"></span>
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="submit-reset move1">
+        <input type="reset" value="Reset" class="submit-reset move2" onclick="alert('Your form is reset')">
+    </fieldset>
+</form>
+
+<script>
+    function validateForm(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        clearErrors(); // Clear previous error messages
+
+        // Get form inputs
+        var nameInput = document.getElementById('name');
+        var emailInput = document.getElementById('email');
+        var phoneInput = document.getElementById('phone');
+        var messageInput = document.getElementById('message');
+
+        // Validate name (required field)
+        if (!validateRequired(nameInput, 'Name is required')) return;
+
+        // Validate email (required field and valid email format)
+        if (!validateRequired(emailInput, 'Email is required')) return;
+        if (!validateEmailFormat(emailInput)) return;
+
+        // Validate phone number (required field and valid format)
+        if (!validateRequired(phoneInput, 'Phone number is required')) return;
+        if (!validatePhoneFormat(phoneInput)) return;
+
+        // Validate message (required field)
+        if (!validateRequired(messageInput, 'Message is required')) return;
+
+        // Form is valid, submit it
+        document.getElementById('myForm').submit();
+    }
+
+    function validateRequired(input, errorMessage) {
+        if (input.value.trim() === '') {
+            displayError(input, errorMessage);
+            return false;
+        }
+        return true;
+    }
+
+    function validateEmailFormat(input) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value.trim())) {
+            displayError(input, 'Invalid email format');
+            return false;
+        }
+        return true;
+    }
+
+    function validatePhoneFormat(input) {
+        var phoneRegex = /^\+?[0-9-]+$/;
+        if (!phoneRegex.test(input.value.trim())) {
+            displayError(input, 'Invalid phone number format');
+            return false;
+        }
+        return true;
+    }
+
+    function clearErrors() {
+        var errorElements = document.getElementsByClassName('error');
+        for (var i = 0; i < errorElements.length; i++) {
+            errorElements[i].textContent = '';
+        }
+    }
+
+    function displayError(input, errorMessage) {
+        var errorElement = input.nextElementSibling;
+        errorElement.textContent = errorMessage;
+    }
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+</script>
+</body>
 </html>
+
